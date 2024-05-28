@@ -1,0 +1,20 @@
+udo fdisk -l
+sudo fdisk /dev/sda
+  n
+  
+  4
+  
+  30
+  
+  p
+  
+  W
+  
+   
+ pvdisplay
+ pvscan
+ pvcreate /dev/sda4
+  
+ sudo vgextend rhel /dev/sda4
+ sudo lvresize --resizefs --extents +100%FREE /dev/rhel/root
+ df -h
